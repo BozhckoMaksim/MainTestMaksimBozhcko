@@ -34,3 +34,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+task bozhcko_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("bozhcko")
+    }
+}

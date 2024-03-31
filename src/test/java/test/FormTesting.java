@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import pages.RegistrationPage;
@@ -17,6 +18,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FormTesting {
     RegistrationPage registrationPage = new RegistrationPage();
+
+    @Tag("bozhcko")
     @Test
     void fillingOutForms(){
         SelenideLogger.addListener("allure", new AllureSelenide());
