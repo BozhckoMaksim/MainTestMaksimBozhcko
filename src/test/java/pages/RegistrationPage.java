@@ -6,6 +6,7 @@ import pages.components.CalendarComponent;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationPage {
 
@@ -30,79 +31,108 @@ public class RegistrationPage {
 
 
 CalendarComponent calendarComponent = new CalendarComponent();
+
     public RegistrationPage openPage(String  value) {
-        open(value);
-
+        step("Открываем страницу", () -> {
+            open(value);
+            return this;
+        });
         return this;
-
     }
-    public RegistrationPage setFirstName(String  value) {
-        firstNameInput.setValue(value);
 
+    public RegistrationPage setFirstName(String  value) {
+        step("Вводится рандомное имя", () -> {
+            firstNameInput.setValue(value);
+            return this;
+        });
         return this;
     }
     public RegistrationPage setLastName(String  value) {
+        step("Вводится рандомная фамилия", () -> {
         lastNameInput.setValue(value);
-
+        return this;
+        });
         return this;
     }
     public RegistrationPage setUserEmail(String  value) {
-        userEmailInput.setValue(value);
-
+        step("Вводится рандомная почта", () -> {
+            userEmailInput.setValue(value);
+            return this;
+        });
         return this;
     }
     public RegistrationPage setGender(String value) {
-        genderWrapper.$(byText(value)).click();
-
+        step("Выбирается рандомный пол", () -> {
+            genderWrapper.$(byText(value)).click();
+            return this;
+        });
         return this;
     }
     public RegistrationPage setUserNumber(String  value) {
-        userNumberInput.setValue(value);
-
+        step("Вводится рандомный номер телефона", () -> {
+            userNumberInput.setValue(value);
+            return this;
+        });
         return this;
     }
     public RegistrationPage setDateBirth(String  day) {
-        calendarInput.click();
-        calendarComponent.setDate(day, day, day);
+        step("Вводится рандомная дата рождения", () -> {
+            calendarInput.click();
+            calendarComponent.setDate(day, day, day);
+            return this;
+        });
         return this;
     }
     public RegistrationPage setSubjectsInput(String  value) {
-        subjectInput.setValue(value).pressEnter();
-
+        step("Вводится рандомный сабж, хз че это", () -> {
+            subjectInput.setValue(value).pressEnter();
+            return this;
+        });
         return this;
     }
     public RegistrationPage setHobbiesWrapper(String  value) {
-        hobbiesWrapper.$(byText(value)).click();
-
+        step("Вводится рандомное хобби", () -> {
+            hobbiesWrapper.$(byText(value)).click();
+            return this;
+        });
         return this;
     }
     public RegistrationPage setUploadPicture(String  value) {
-        uploadPicture.uploadFromClasspath(value);
-
+        step("Загрузка картинки", () -> {
+            uploadPicture.uploadFromClasspath(value);
+            return this;
+        });
         return this;
     }
-    public RegistrationPage setCurrentAddress(String  value) {
-        currentAddress.setValue(value);
 
+    public RegistrationPage setCurrentAddress(String  value) {
+        step("Вводится рандомный адрес", () -> {
+            currentAddress.setValue(value);
+            return this;
+        });
         return this;
     }
     public RegistrationPage setStateCityWrapper(String  value) {
-        state.click();
-        stateCityWrapper.$(byText(value)).click();
-
-
+        step("Выбирается рандомная страна", () -> {
+            state.click();
+            stateCityWrapper.$(byText(value)).click();
+            return this;
+        });
         return this;
     }
     public RegistrationPage setStateCityWrapper1(String  value) {
-        city.click();
-        stateCityWrapper.$(byText(value)).click();
-
+        step("Подбор города по стране выбранной ранее", () -> {
+            city.click();
+            stateCityWrapper.$(byText(value)).click();
+            return this;
+        });
         return this;
     }
     public RegistrationPage setSubmit() {
-        submit.click();
-
+        step("Нажимает сабмит - погна", () -> {
+            submit.click();
+            return this;
+        });
         return this;
     }
-
 }

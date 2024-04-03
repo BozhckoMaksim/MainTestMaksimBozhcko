@@ -13,7 +13,7 @@ import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-
+import static io.qameta.allure.Allure.step;
 
 
 public class FormTesting {
@@ -25,6 +25,7 @@ public class FormTesting {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Faker faker = new Faker();
         RandomValue randomValue = new RandomValue();
+
 
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
