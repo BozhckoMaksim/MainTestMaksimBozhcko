@@ -30,7 +30,7 @@ public class FormTesting {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
-        String gender = faker.options().option("Male", "Female", "Other1");
+        String gender = faker.options().option("Male", "Female", "Other");
         String phonNumber = faker.phoneNumber().subscriberNumber(10);
         String dateBirth = String.valueOf(faker.date().birthday());
         String subjectsInput = faker.options().option("A", "B", "C");
