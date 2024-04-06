@@ -30,7 +30,7 @@ public class FormTesting {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
-        String gender = faker.options().option("Male", "Female", "Other1");
+        String gender = faker.options().option("Male", "Female", "Other");
         String phonNumber = faker.phoneNumber().subscriberNumber(10);
         String dateBirth = String.valueOf(faker.date().birthday());
         String subjectsInput = faker.options().option("A", "B", "C");
@@ -43,6 +43,7 @@ public class FormTesting {
         Configuration.timeout = 10000;
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         registrationPage
                 .openPage("https://demoqa.com/automation-practice-form")
